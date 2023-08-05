@@ -51,7 +51,7 @@ function AttendanceSheet({ labClass, changeRoute, logout }) {
      server also prevent default browser save dialog */
     if (e.ctrlKey && e.key === 's') {
       e.preventDefault();
-      fetch('http://localhost:3001/api/', {
+      fetch('http://localhost:8001/api/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ function AttendanceSheet({ labClass, changeRoute, logout }) {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/?labClass=${labClass}`, {
+    fetch(`http://localhost:8001/api/?labClass=${labClass}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
