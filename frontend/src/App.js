@@ -43,7 +43,7 @@ function App() {
             <div
               onClick={() => {
                 const password = document.querySelector('input').value;
-                fetch('http://localhost:8000/api/check-password', {
+                fetch('/api/check-password', {
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json',
