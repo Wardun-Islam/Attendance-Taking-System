@@ -15,11 +15,7 @@ app.use(express.static(path.join(__dirname, '..', 'frontend', 'build')));
 dotenv.config();
 const port = 8001;
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'frontend', 'index.html'));
-});
-
-app.post('api/check-password', (req, res) => {
+app.post('/api/check-password', (req, res) => {
   if (req.body.password === process.env.CURRENT_USER_PASSWORD) {
     const token = jwt.sign(
       {
@@ -35,7 +31,7 @@ app.post('api/check-password', (req, res) => {
 });
 
 app.get(
-  'api/',
+  '/api/',
   (req, res, next) => {
     console.log(req.headers.authorization);
     // Verify Token
@@ -77,7 +73,7 @@ app.get(
 );
 
 app.post(
-  'api/',
+  '/api/',
   (req, res, next) => {
     // Verify Token
     req.token = req.headers.authorization;
@@ -122,6 +118,10 @@ app.post(
     }
   },
 );
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'frontend', 'index.html'));
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

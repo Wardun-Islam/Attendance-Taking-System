@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useEffect, useRef } from 'react';
 
 function NameWithAttendance({ student, currentkey, selected }) {
