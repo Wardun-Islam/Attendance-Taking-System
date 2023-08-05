@@ -2,7 +2,7 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import AttendanceSheet from './components/AttendanceSheet';
 import DataGridDemo from './components/DisplayAttendance';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 
 
 function App() {
@@ -135,6 +135,20 @@ function App() {
           }
         </div>
       } />
+      <Route path="/" element={
+        <>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/user">User</Link>
+              </li>
+              <li>
+                <Link to="/admin">Admin</Link>
+              </li>
+            </ul>
+          </nav>
+        </>}
+      />
     </Routes>
   );
 }

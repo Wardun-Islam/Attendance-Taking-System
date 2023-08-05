@@ -2,9 +2,6 @@
   "name": "attendance-taking-system-server",
   "version": "1.0.0",
   "main": "index.js",
-  "engines": {
-    "node": "18.12.x"
-  },
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
