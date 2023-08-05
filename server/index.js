@@ -31,6 +31,23 @@ app.post('/api/check-password', (req, res) => {
 });
 
 app.get(
+  '/api/get-attendance',
+  async (req, res) => {
+    try {
+      const wb = XLSX.readFile(
+        `./files/${req.query.labClass} Attandence Sheet Summer 2023.xlsx`,
+        { cellDates: true },
+      );
+      const sheet = wb.Sheets[wb.SheetNames[0]];
+      const data = XLSX.utils.sheet_to_json(sheet);
+      res.send(data);
+    } catch (err) {
+      console.log(err);
+    }
+  },
+);
+
+app.get(
   '/api/',
   (req, res, next) => {
     console.log(req.headers.authorization);
